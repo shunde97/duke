@@ -17,6 +17,6 @@ public class Duke{
             System.out.println(effect + command + "\n" + effect);
             command = sc.next();
         }
-        System.out.println(effect + "Bye. Hope to see you again soon!\n" + effect);
+        System.out.println(effect + "Bye! :) Hope to see you again soon!\n" + effect);
     }
 }
