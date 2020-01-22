@@ -8,7 +8,7 @@ public class Duke{
                 + "| | | | | | | |/ / _ \\\n"
                 + "| |_| | |_| |   <  __/\n"
                 + "|____/ \\__,_|_|\\_\\___|\n";
-        ArrayList<String> list = new ArrayList<>();
+        ArrayList<Task> list = new ArrayList<>();
         System.out.println("Hi! I'm\n" + logo);
         String effect = "************************************************************";
         System.out.println(effect + "\nHi! I'm\n" + logo);
@@ -18,14 +18,22 @@ public class Duke{
         while(!command.equals("bye")) {
             System.out.println(effect);
             if (command.equals("list")) {
+                System.out.println("Here are the tasks in your list:");
                 int index = 1;
-                for (String s : list) {
-                    System.out.println(index + ". " + s);
+                for (Task t : list) {
+                    System.out.println(index + "." + t);
                     index++;
                 }
             }
+            else if (command.split(" ")[0].equals("done")){
+                int target = Integer.parseInt(command.substring(5));
+                Task taskDone = list.get(target - 1);
+                taskDone.markDone();
+                System.out.println("Nice! I've marked this task as done:");
+                System.out.println(taskDone);
+            }
             else {
-                list.add(command);
+                list.add(new Task(command));
                 System.out.println("added: " + command);
             }
             System.out.println(effect);
