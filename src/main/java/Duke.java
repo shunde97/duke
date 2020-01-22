@@ -1,4 +1,6 @@
-public class Duke {
+import java.util.Scanner;
+
+public class Duke{
     public static void main(String[] args) {
         String logo = " ____        _        \n"
                 + "|  _ \\ _   _| | _____ \n"
@@ -6,5 +8,15 @@ public class Duke {
                 + "| |_| | |_| |   <  __/\n"
                 + "|____/ \\__,_|_|\\_\\___|\n";
         System.out.println("Hello from\n" + logo);
+        String effect = "************************************************************\n";
+        System.out.println(effect + "Hi! I'm\n" + logo);
+        System.out.println("What can I do for you?\n" + effect);
+        Scanner sc = new Scanner(System.in);
+        String command = sc.next();
+        while(!command.equals("bye")) {
+            System.out.println(effect + command + "\n" + effect);
+            command = sc.next();
+        }
+        System.out.println(effect + "Bye. Hope to see you again soon!\n" + effect);
     }
 }
