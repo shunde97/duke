@@ -1,0 +1,12 @@
+todo project for week 2
+event project meeting /at saturday 3-6pm
+deadline drop modules /by this sunday
+event cny dinner /at friday 6pm
+list
+done 1
+list
+delete 2
+list
+todo project for week 2
+list
+bye
