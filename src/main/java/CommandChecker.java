@@ -4,7 +4,7 @@ public class CommandChecker {
 
     public void checkCommand(String command, ArrayList<Task> list) throws DukeException {
         if (command.length() < 4) {
-            throw new DukeException("☹ OOPS!!! I'm sorry, your command is too short ;) \n");
+            throw new DukeException("☹ OOPS!!! I'm sorry, your command is too short \uD83D\uDE09 \n");
         } else if (command.contains("todo") || command.contains("event") || command.contains("deadline") || command.contains("delete") || command.contains("done")) {
             if (command.substring(0, 4).equals("todo")) {
                 if (command.equals("todo ") || command.equals("todo")) {
