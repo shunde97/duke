@@ -58,7 +58,7 @@ public class Duke {
             } else if (command.startsWith("event")) {
                 list.add(new Event(command.substring(6).split("/at")[0], command.substring(6).split("/at")[1]));
             }
-            System.out.println("Got it. I've added this task:\n" + list.get(list.size() - 1));
+            System.out.println("Got it! I've added this task:\n" + list.get(list.size() - 1));
             System.out.println("Now you have " + list.size() + " tasks in the list.");
         }
         System.out.println(effect);
