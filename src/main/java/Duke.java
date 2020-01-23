@@ -44,7 +44,13 @@ public class Duke {
             taskDone.markDone();
             System.out.println("Nice! I've marked this task as done:");
             System.out.println(taskDone);
-        } else {
+        } else if (command.split(" ")[0].equals("delete")) {
+            System.out.println("Noted. I've removed this task:");
+            System.out.println(list.get(Integer.parseInt(command.substring(7)) - 1));
+            list.remove(Integer.parseInt(command.substring(7)) - 1);
+            System.out.println("Now you have " + list.size() + " tasks in the list.");
+        }
+        else {
             if (command.startsWith("deadline")) {
                 list.add(new Deadline(command.substring(9).split("/by")[0], command.substring(9).split("/by")[1]));
             } else if (command.startsWith("todo")) {
