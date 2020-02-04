@@ -2,32 +2,45 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Duke {
-    public static void main(String[] args) {
-        String logo = " ____        _        \n"
-                + "|  _ \\ _   _| | _____ \n"
-                + "| | | | | | | |/ / _ \\\n"
-                + "| |_| | |_| |   <  __/\n"
-                + "|____/ \\__,_|_|\\_\\___|\n";
-        ArrayList<Task> list = new ArrayList<>();
-        System.out.println("Hi! I'm\n" + logo);
-        String effect = "************************************************************";
-        System.out.println(effect + "\nHi! I'm\n" + logo);
-        System.out.println("What can I do for you?\n" + effect);
+
+    private Storage storage;
+    private Ui ui;
+    private String effect;
+    private TaskList tasks;
+
+    public Duke(String filePath) {
+        this.ui = new Ui();
+        this.effect = "************************************************************";
+        storage = new Storage(filePath);
+        try {
+            tasks = new TaskList(storage.load());
+        } catch (DukeException e) {
+            ui.showLoadingError(e);
+            tasks = new TaskList();
+        }
+    }
+
+    public void run() {
         Scanner sc = new Scanner(System.in);
-        String command = sc.nextLine();
-        System.out.println(command.split(" ")[0]);
-        while (!command.equals("bye")) {
-            CommandChecker cc = new CommandChecker();
-            try {
-                cc.checkCommand(command, list);
-                listAction(list, command, effect);
-            } catch (DukeException e) {
-                System.err.println(e);
-            }
+        ui.greet(this.effect);
+        while(!ui.isFinished()) {
+            String userInput = sc.nextLine();
+            ui.handleInput(userInput, effect);
             command = sc.nextLine();
         }
-        System.out.println(effect + "\n" + "Bye! :) Hope to see you again soon!\n" + effect);
     }
+
+
+    Scanner sc = new Scanner(System.in);
+    String command = sc.nextLine();
+        System.out.println(command.split(" ")[0]);
+        while(!command.equals("bye"))
+
+    {
+
+
+        System.out.println(effect +"\n"+"Bye! :) Hope to see you again soon!\n"+effect);
+}
 
     public static ArrayList<Task> listAction(ArrayList<Task> list, String command, String effect) {
         System.out.println(effect);
@@ -49,8 +62,7 @@ public class Duke {
             System.out.println(list.get(Integer.parseInt(command.substring(7)) - 1));
             list.remove(Integer.parseInt(command.substring(7)) - 1);
             System.out.println("Now you have " + list.size() + " tasks in the list.");
-        }
-        else {
+        } else {
             if (command.startsWith("deadline")) {
                 list.add(new Deadline(command.substring(9).split("/by")[0], command.substring(9).split("/by")[1]));
             } else if (command.startsWith("todo")) {
@@ -63,6 +75,10 @@ public class Duke {
         }
         System.out.println(effect);
         return new ArrayList<>(list);
+    }
+
+    public static void main(String[] args) {
+        new Duke("data/data.txt").run();
     }
 }
 

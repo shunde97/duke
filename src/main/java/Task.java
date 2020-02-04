@@ -1,10 +1,12 @@
 public class Task {
     protected String description;
     protected boolean isDone;
+    protected String binary;
 
     public Task(String description) {
         this.description = description;
         this.isDone = false;
+        this.binary = "0";
     }
 
     public Task(String description, boolean isDone) {
@@ -26,6 +28,11 @@ public class Task {
 
     public void markDone() {
         this.isDone = true;
+        this.binary = "1";
+    }
+
+    public String saveTask(){
+        return "T | " + this.binary + " | " + this.description;
     }
 
     @Override

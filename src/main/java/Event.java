@@ -7,6 +7,11 @@ public class Event extends Task {
     }
 
     @Override
+    public String saveTask(){
+        return "E | " + this.binary + " | " + this.description + " | " + this.deadline;
+    }
+
+    @Override
     public String toString() {
         return "     [E]" + this.getIcon() + " " + this.description + "(at:" + this.deadline + ")";
     }
