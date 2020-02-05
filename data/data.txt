@@ -1,0 +1,6 @@
+T | 0 | test1
+T | 0 | test 2
+E | 1 | test3  |  life tmr
+E | 0 | test 4  |  done now
+D | 1 | test5  |  later
+D | 1 | test 6  |  npw

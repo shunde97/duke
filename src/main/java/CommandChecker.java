@@ -4,7 +4,9 @@ public class CommandChecker {
 
     public void checkCommand(String command, ArrayList<Task> list) throws DukeException {
         if (command.length() < 4) {
-            throw new DukeException("☹ OOPS!!! I'm sorry, your command is too short \uD83D\uDE09 \n");
+            if (!command.equals("bye")) {
+                throw new DukeException("☹ OOPS!!! I'm sorry, your command is too short \uD83D\uDE09 \n");
+            }
         } else if (command.contains("todo") || command.contains("event") || command.contains("deadline") || command.contains("delete") || command.contains("done")) {
             if (command.substring(0, 4).equals("todo")) {
                 if (command.equals("todo ") || command.equals("todo")) {
@@ -29,9 +31,6 @@ public class CommandChecker {
                 }
                 if (command.split("/at")[1].length() < 2) {
                     throw new DukeException("☹ OOPS!!! An event should have a day and time!!!\n");
-                }
-                if (!command.split("/at")[1].matches(".*\\d.*")) {
-                    throw new DukeException("☹ Did you forget to add a time to your event??? ☹ \n");
                 }
             } else if (command.substring(0, 6).equals("delete")) {
                 if (!command.contains(" ") || command.equals("delete")) {
