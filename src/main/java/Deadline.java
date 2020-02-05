@@ -12,6 +12,7 @@ public class Deadline extends Task {
     public Deadline(String description, String dateInput) {
         super(description);
         this.hasTime = false;
+        this.dateInput = dateInput;
         if (dateInput.split(" ").length > 1) {
             this.dateInput = dateInput.split(" ")[0];
             this.timeInput = dateInput.split(" ")[1];

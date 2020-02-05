@@ -1,1 +1,5 @@
-D | 0 | penislord | 1997-08-05 1800
+T | 1 | project for week 2
+D | 0 | be born | 1997-08-05
+E | 0 | project meeting  |  bayfront
+E | 0 | cny dinner  |  saturday 6pm
+T | 0 | project for week 2

@@ -29,15 +29,14 @@ public class TaskList {
                     String year = date.split("/")[2];
                     date = year + "-" + month + "-" + day;
                 }
-                System.out.println(date);
                 this.taskArray.add(new Deadline(description.split(" /by ")[0], date));
             } else {
                 String date = description.split(" /by ")[1].split(" ")[0];
                 String time = description.split(" /by ")[1].split(" ")[1];
                 if (date.contains("/")) {
                     String day = date.split("/")[0];
-                    String month = date.split("/")[0];
-                    String year = date.split("/")[0];
+                    String month = date.split("/")[1];
+                    String year = date.split("/")[2];
                     date = year + "-" + month + "-" + day;
                 }
                 this.taskArray.add(new Deadline(description.split(" /by ")[0], date, time));
