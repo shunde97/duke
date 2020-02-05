@@ -21,7 +21,27 @@ public class TaskList {
 
     public TaskList addTask (String command, String description) {
         if (command.equals("deadline")) {
-            this.taskArray.add(new Deadline(description.split("/by")[0], description.split("/by")[1]));
+            if (description.split(" /by ")[1].split(" ").length == 1) {
+                String date = description.split(" /by ")[1].split(" ")[0];
+                if (date.contains("/")) {
+                    String day = date.split("/")[0];
+                    String month = date.split("/")[1];
+                    String year = date.split("/")[2];
+                    date = year + "-" + month + "-" + day;
+                }
+                System.out.println(date);
+                this.taskArray.add(new Deadline(description.split(" /by ")[0], date));
+            } else {
+                String date = description.split(" /by ")[1].split(" ")[0];
+                String time = description.split(" /by ")[1].split(" ")[1];
+                if (date.contains("/")) {
+                    String day = date.split("/")[0];
+                    String month = date.split("/")[0];
+                    String year = date.split("/")[0];
+                    date = year + "-" + month + "-" + day;
+                }
+                this.taskArray.add(new Deadline(description.split(" /by ")[0], date, time));
+            }
         } else if (command.startsWith("todo")) {
             this.taskArray.add(new Todo(description));
         } else if (command.startsWith("event")) {
