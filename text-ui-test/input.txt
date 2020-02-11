@@ -1,7 +1,8 @@
 todo project for week 2
-event project meeting /at saturday 3-6pm
-deadline drop modules /by this sunday
-event cny dinner /at friday 6pm
+deadline celebrate cny /by 29/02/2020 1800
+deadline be born /by 1997-08-05
+event project meeting /at bayfront
+event cny dinner /at saturday 6pm
 list
 done 1
 list
