@@ -1,5 +1,10 @@
 import java.util.Scanner;
 
+/**
+ * CS2103 Individual Project.
+ * Class for duke ChatBot with main class.
+ * @author Chiang Shun De
+ */
 
 public class Duke {
 
