@@ -1,6 +1,9 @@
 import java.util.Scanner;
 
 
+
+
+
 public class Duke {
 
     private Storage storage;
@@ -32,6 +35,7 @@ public class Duke {
         ui.farewell();
         storage.saveCurrentList(this.tasks.getTaskArray());
     }
+
 
     public static void main(String[] args) {
         System.out.println("booting up...");
