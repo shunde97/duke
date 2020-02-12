@@ -54,6 +54,16 @@ public class TaskList {
         return new TaskList(taskArray);
     }
 
+    public void searchTask (String keyWord) {
+        int i = 1;
+        for (Task task : taskArray) {
+            if (task.getDescription().contains(keyWord)) {
+                System.out.println(i + "." + task);
+                i++;
+            }
+        }
+    }
+
     public TaskList markDone(int target) {
         this.taskArray.get(target).markDone();
         return new TaskList(taskArray);

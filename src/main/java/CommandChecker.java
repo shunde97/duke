@@ -54,7 +54,7 @@ public class CommandChecker {
             if (command.contains("list") && !command.equals("list")) {
                 throw new DukeException("☹ OOPS!!! did you mean to type \"list\"? ☹ \n");
             }
-            if (!command.substring(0, 4).equals("list")) {
+            if (!command.substring(0, 4).equals("list") && !command.startsWith("find")) {
                 throw new DukeException("☹ OOPS!!! I'm sorry, but I don't know what that means ☹ \n");
             }
         }

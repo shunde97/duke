@@ -34,7 +34,6 @@ public class Ui {
                 System.out.println("Here are the tasks in your list:");
                 tasks.printlist();
             }
-            System.out.println(this.effect);
         } else if (command.equals("done") && ((Integer.parseInt(description) - 1) <= tasks.getSize())) {
             System.out.println(this.effect + "\nNice! I've marked this task as done:");
             tasks = tasks.markDone(Integer.parseInt(description) - 1);
@@ -52,6 +51,10 @@ public class Ui {
             tasks = tasks.addTask(command, description);
             System.out.println(this.effect + "\nGot it! I've added this task:\n" + tasks.get(tasks.getSize() - 1));
             System.out.println("Now you have " + tasks.getSize() + " tasks in the list.");
+            System.out.println(this.effect);
+        } else if (command.equals("find")) {
+            System.out.println(this.effect + "\nHere are the matching tasks in your list:");
+            tasks.searchTask(description);
             System.out.println(this.effect);
         }
         return tasks;
