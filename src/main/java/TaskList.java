@@ -94,6 +94,20 @@ public class TaskList {
     }
 
     /**
+     * Searches for tasks containing the user input keyword.
+     * @param keyWord The user input to search for tasks containing this word.
+     */
+    public void searchTask(String keyWord) {
+        int index = 1;
+        for (Task t: taskArray) {
+            if (t.getDescription().contains(keyWord)){
+                System.out.println(index + ". " + t) ;
+                index++;
+            }
+        }
+    }
+
+    /**
      * Returns the task chosen by the user.
      * @param position The position of the chosen task.
      * @return The chosen task.
