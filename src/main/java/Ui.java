@@ -52,7 +52,6 @@ public class Ui {
                 System.out.println("Here are the tasks in your list:");
                 tasks.printlist();
             }
-            System.out.println(this.effect);
         } else if (command.equals("done") && ((Integer.parseInt(description) - 1) <= tasks.getSize())) {
             System.out.println(this.effect + "\nNice! I've marked this task as done:");
             tasks = tasks.markDone(Integer.parseInt(description) - 1);
