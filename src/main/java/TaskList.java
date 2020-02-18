@@ -1,16 +1,34 @@
 import java.util.ArrayList;
 
+/**
+ * CS2103 Individual Project.
+ * The TaskList class is to encapsulates the methods of task operations. It contains an
+ * ArrayList of Task.
+ * @author Chiang Shun De
+ */
+
 public class TaskList {
+
     private ArrayList<Task> taskArray;
 
+    /**
+     * Constructor method to create an instance of TaskList using an existing ArrayList of Tasks.
+     * @param taskArray ArrayList of Tasks.
+     */
     public TaskList(ArrayList<Task> taskArray) {
         this.taskArray = taskArray;
     }
 
+    /**
+     * Constructor method to create an instance of TaskList.
+     */
     public TaskList() {
         this.taskArray = new ArrayList<>();
     }
 
+    /**
+     * Prints out all the tasks in the ArrayList in a readable format.
+     */
     public void printlist(){
         int index = 1;
         for (Task t : taskArray) {
@@ -19,6 +37,12 @@ public class TaskList {
         }
     }
 
+    /**
+     * Adds a Task into the ArrayList based on user input and type of task.
+     * @param command The type of task to add into the ArrayList.
+     * @param description The description of the task to add into the ArrayList.
+     * @return A new TaskList based on the modified ArrayList.
+     */
     public TaskList addTask (String command, String description) {
         if (command.equals("deadline")) {
             if (description.split(" /by ")[1].split(" ").length == 1) {
@@ -49,24 +73,47 @@ public class TaskList {
         return new TaskList(taskArray);
     }
 
+    /**
+     * Deletes a task in the ArrayList based on user input.
+     * @param target The position chosen by the user.
+     * @return A new TaskList created from the modified ArrayList.
+     */
     public TaskList deleteTask (int target) {
         this.taskArray.remove(target);
         return new TaskList(taskArray);
     }
 
+    /**
+     * Changes the completion status of the chosen task to completed, based on user input.
+     * @param target The position chosen by the user.
+     * @return A new TaskList with the modified ArrayList.
+     */
     public TaskList markDone(int target) {
         this.taskArray.get(target).markDone();
         return new TaskList(taskArray);
     }
 
-    public Task get(int i) {
-        return this.taskArray.get(i);
+    /**
+     * Returns the task chosen by the user.
+     * @param position The position of the chosen task.
+     * @return The chosen task.
+     */
+    public Task get(int position) {
+        return this.taskArray.get(position);
     }
 
+    /**
+     * Method to return the number of tasks present in the ArrayList.
+     * @return the number of tasks inside the ArrayList.
+     */
     public int getSize(){
         return this.taskArray.size();
     }
 
+    /**
+     * Accesses the ArrayList of tasks.
+     * @return the ArrayList of tasks.
+     */
     public ArrayList<Task> getTaskArray() {
         return this.taskArray;
     }

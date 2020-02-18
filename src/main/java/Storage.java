@@ -6,16 +6,30 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.FileNotFoundException;
 
-
+/**
+ * CS2103 Individual Project.
+ * The Storage class encapsulates the saving and loading of tasks. It creates a new file if
+ * no files exist.
+ * @author Chiang Shun De
+ */
 public class Storage {
     private Storage storage;
     private String fileName;
     private String stringSplitter = " " + "\\|" + " ";
 
+    /**
+     * The constructor method for the Storage class
+     * @param fileName the name of the file.
+     */
     public Storage(String fileName) {
         this.fileName = fileName;
     }
 
+    /**
+     * The constructor to load the previous file with all the previous tasks saved inside.
+     * @return A ArrayList of tasks based on the previous ArrayList, or an empty one if there
+     * was no previous list.
+     */
     public ArrayList<Task> load() {
         ArrayList<Task> tasks = new ArrayList<>();
         try {
@@ -52,6 +66,10 @@ public class Storage {
         return tasks;
     }
 
+    /**
+     * A class to handle the saving of the ArrayList of tasks.
+     * @param list the ArrayList of tasks to save.
+     */
     public void saveCurrentList(ArrayList<Task> list) {
         try {
             FileWriter fileWriter = new FileWriter(this.fileName);
