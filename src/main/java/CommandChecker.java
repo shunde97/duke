@@ -1,7 +1,19 @@
 import java.util.ArrayList;
 
+/**
+ * CS2103 Individual Project.
+ * The CommandChecker class encapsulates validating user input. It takes in user input and determines
+ * the corresponding action. It checks the input against the current ArrayList of tasks.
+ * @author Chiang Shun De
+ */
 public class CommandChecker {
 
+    /**
+     * The method to validate user input against the current ArrayList of task.
+     * @param command The String representation of user input.
+     * @param list The current ArrayList of tasks.
+     * @throws DukeException If user input is invalid
+     */
     public void checkCommand(String command, ArrayList<Task> list) throws DukeException {
         if (command.length() < 4) {
             if (!command.equals("bye")) {
@@ -54,7 +66,7 @@ public class CommandChecker {
             if (command.contains("list") && !command.equals("list")) {
                 throw new DukeException("☹ OOPS!!! did you mean to type \"list\"? ☹ \n");
             }
-            if (!command.substring(0, 4).equals("list")) {
+            if (!command.substring(0, 4).equals("list") && !command.startsWith("find")) {
                 throw new DukeException("☹ OOPS!!! I'm sorry, but I don't know what that means ☹ \n");
             }
         }

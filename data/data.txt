@@ -1,6 +1,5 @@
-T | 0 | test1
-T | 0 | test 2
-E | 1 | test3  |  life tmr
-E | 0 | test 4  |  done now
-D | 1 | test5  |  later
-D | 1 | test 6  |  npw
+T | 1 | project for week 2
+D | 0 | be born | 1997-08-05
+E | 0 | project meeting  |  bayfront
+E | 0 | cny dinner  |  saturday 6pm
+T | 0 | project for week 2
