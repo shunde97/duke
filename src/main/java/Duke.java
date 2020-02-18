@@ -42,6 +42,7 @@ public class Duke {
         ui.greet(this.effect);
         while(!ui.checkFinished()) {
             String userInput = sc.nextLine();
+            assert userInput.length() > 0 : "The input is not valid.";
             Parser parser = new Parser(userInput);
             parser.verifyCommand(this.tasks);
             this.tasks = ui.handleInput(userInput, tasks);

@@ -52,9 +52,7 @@ public class Storage {
                     tasks.add(task);
                 lineRead = bufferedReader.readLine();
             }
-            if (tasks.size() == 0) {
-                System.out.println("File is empty");
-            }
+            assert tasks.size() > 0 : "File is empty.";
             bufferedReader.close();
         } catch (FileNotFoundException e) {
             System.out.println("No file found at: " + fileName);
