@@ -55,11 +55,11 @@ public class TaskList {
     }
 
     public void searchTask (String keyWord) {
-        int i = 1;
-        for (Task task : taskArray) {
-            if (task.getDescription().contains(keyWord)) {
-                System.out.println(i + "." + task);
-                i++;
+        int index = 1;
+        for (Task t: taskArray) {
+            if (t.getDescription().contains(keyWord)){
+               System.out.println(index + ". " + t) ;
+               index++;
             }
         }
     }

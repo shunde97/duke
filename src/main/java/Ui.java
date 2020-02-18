@@ -1,5 +1,10 @@
-import java.util.ArrayList;
-
+/**
+ * CS2103 Individual Project.
+ * The Ui class encapsulates all the methods dealing with user interactions. It takes in user input
+ * and determines the corresponding action. It contains a boolean to determine if the user wants to end
+ * the chat bot operations.
+ * @author Chiang Shun De
+ */
 public class Ui {
 
     private Storage storage;
@@ -7,11 +12,18 @@ public class Ui {
     private boolean isFinished;
     private String effect;
 
+    /**
+     * Constructor method to create an instance of Ui.
+     */
     public Ui() {
         this.isFinished = false;
         this.effect = "************************************************************";
     }
 
+    /**
+     * Method to print out the greeting messages to welcome the user to the chat bot.
+     * @param effect The design of the line.
+     */
     public void greet(String effect) {
         String logo = " ____        _        \n"
                    + "|  _ \\ _   _| | _____ \n"
@@ -22,6 +34,12 @@ public class Ui {
         System.out.println("What can I do for you?\n"+effect);
     }
 
+    /**
+     * This method takes in the user input and perform the required actions based on user input.
+     * @param userInput String containing user input
+     * @param tasks The TaskList containing the ArrayList of tasks.
+     * @return A new TaskList from the actions performed based on user input.
+     */
     public TaskList handleInput(String userInput, TaskList tasks) {
         Parser parser = new Parser(userInput);
         String command = parser.getCommand();
@@ -60,6 +78,9 @@ public class Ui {
         return tasks;
     }
 
+    /**
+     * To bid farewell to the user before the chat bot closes.
+     */
     public void farewell() {
         System.out.println("\n" + "Bye! :) Hope to see you again soon!\n");
     }
@@ -69,6 +90,10 @@ public class Ui {
         System.out.println("☹ OOPS!!! LOADING ERROR...");
     }
 
+    /**
+     * Checks if the user has keyed in "bye" to end chat bot operations.
+     * @return true if there are still actions to be inputted, false if the user has keyed in "bye".
+     */
     public boolean checkFinished() {
         return this.isFinished;
     }
