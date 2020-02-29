@@ -36,11 +36,13 @@ public class Task {
      */
     public String getIcon() {
         if (isDone) {
-            return "[\u2713]";
+            return "[✓]";
         } else {
-            return "[\u2718]";
+            return "[✘]";
         }
     }
+
+
 
     /**
      * A method to mark the task as completed.

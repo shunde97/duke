@@ -52,15 +52,34 @@ public class Ui {
                 System.out.println("Here are the tasks in your list:");
                 tasks.printlist();
             }
-        } else if (command.equals("done") && ((Integer.parseInt(description) - 1) <= tasks.getSize())) {
+            System.out.println(this.effect);
+        } else if (command.equals("done") && ((Integer.parseInt(description)) <= tasks.getSize())) {
             System.out.println(this.effect + "\nNice! I've marked this task as done:");
             tasks = tasks.markDone(Integer.parseInt(description) - 1);
             System.out.println(tasks.get(Integer.parseInt(description) - 1));
             System.out.println(this.effect);
-        } else if (command.equals("delete") && ((Integer.parseInt(description) - 1) <= tasks.getSize())) {
+        } else if (command.equals("delete") && ((Integer.parseInt(description)) <= tasks.getSize())) {
             System.out.println(this.effect + "\nNoted. I've removed this task:");
             System.out.println(tasks.get(Integer.parseInt(description) - 1));
             tasks = tasks.deleteTask(Integer.parseInt(description) - 1);
+            System.out.println("Now you have " + tasks.getSize() + " tasks in the list.");
+            System.out.println(this.effect);
+        } else if (command.equals("massdelete")) {
+            if (description.equals("all")){
+                System.out.println(this.effect + "\nNoted. I've removed all tasks!");
+            } else {
+                System.out.println(this.effect + "\nNoted. I've removed these tasks with the keyword: " + description);
+            }
+            tasks = tasks.massDelete(description);
+            System.out.println("Now you have " + tasks.getSize() + " tasks in the list.");
+            System.out.println(this.effect);
+        } else if (command.equals("massdone")) {
+            if (description.equals("all")){
+                System.out.println(this.effect + "\nNoted. I've marked all tasks as done!");
+            } else {
+                System.out.println(this.effect + "\nNoted. I've marked done these tasks with the keyword: " + description);
+            }
+            tasks = tasks.massDone(description);
             System.out.println("Now you have " + tasks.getSize() + " tasks in the list.");
             System.out.println(this.effect);
         } else if (command.equals("bye")) {

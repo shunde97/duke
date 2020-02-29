@@ -31,7 +31,7 @@ public class TaskList {
      */
     public void printlist(){
         int index = 1;
-        for (Task t : taskArray) {
+        for (Task t : this.taskArray) {
             System.out.println(index + "." + t);
             index++;
         }
@@ -44,7 +44,7 @@ public class TaskList {
      * @return A new TaskList based on the modified ArrayList.
      */
     public TaskList addTask (String command, String description) {
-        if (command.equals("deadline")) {
+        if (command.equals("deadline") && description.contains("/by")) {
             if (description.split(" /by ")[1].split(" ").length == 1) {
                 String date = description.split(" /by ")[1].split(" ")[0];
                 if (date.contains("/")) {
@@ -90,7 +90,7 @@ public class TaskList {
      */
     public TaskList markDone(int target) {
         this.taskArray.get(target).markDone();
-        return new TaskList(taskArray);
+        return new TaskList(this.taskArray);
     }
 
     /**
@@ -99,12 +99,55 @@ public class TaskList {
      */
     public void searchTask(String keyWord) {
         int index = 1;
-        for (Task t: taskArray) {
+        for (Task t: this.taskArray) {
             if (t.getDescription().contains(keyWord)){
                 System.out.println(index + ". " + t) ;
                 index++;
             }
         }
+    }
+
+
+    /**
+     * Mass deletes tasks containing the user input keyword.
+     * @param keyWord The user input to search for tasks containing this word.
+     * @return A new TaskList created from the modified ArrayList with the required tasks deleted.
+     */
+    public TaskList massDelete(String keyWord) {
+        ArrayList<Task> temp = new ArrayList<>();
+        if (keyWord.equals("all")){
+            this.taskArray.clear();
+        } else {
+            for (Task t: this.taskArray) {
+                if (t.getDescription().contains(keyWord)) {
+                    System.out.println(t);
+                    temp.add(t);
+                }
+            }
+            this.taskArray.removeAll(temp);
+        }
+        return new TaskList(this.taskArray);
+    }
+
+    /**
+     * Mass mark tasks containing the user input keyword as done.
+     * @param keyWord The user input to search for tasks containing this word.
+     * @return A new TaskList created from the modified ArrayList with the required tasks marked as done.
+     */
+    public TaskList massDone(String keyWord) {
+        if (keyWord.equals("all")) {
+            for (Task t : this.taskArray) {
+                t.markDone();
+            }
+        } else {
+            for (Task t: this.taskArray) {
+                if (t.getDescription().contains(keyWord)) {
+                    t.markDone();
+                    System.out.println(t);
+                }
+            }
+        }
+        return new TaskList(this.taskArray);
     }
 
     /**

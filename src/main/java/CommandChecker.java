@@ -15,6 +15,12 @@ public class CommandChecker {
      * @throws DukeException If user input is invalid
      */
     public void checkCommand(String command, ArrayList<Task> list) throws DukeException {
+        String description = "";
+        if (command.split(" ").length > 1) {
+            description = command.split(" ", 2)[1];
+        } else {
+            description = "";
+        }
         if (command.length() < 4) {
             if (!command.equals("bye")) {
                 throw new DukeException("☹ OOPS!!! I'm sorry, your command is too short \uD83D\uDE09 \n");
@@ -28,10 +34,10 @@ public class CommandChecker {
                 if (!command.contains(" ") || command.equals("done")) {
                     throw new DukeException("☹ OOPS!!! What task number have you accomplished?\n");
                 }
-                if (Integer.parseInt(command.substring(5)) > list.size()) {
+                if (Integer.parseInt(description) > list.size()) {
                     throw new DukeException("☹ OOPS!!! The number you typed is too high!\n");
                 }
-                if (Integer.parseInt(command.substring(5)) < 0) {
+                if (Integer.parseInt(description) < 0) {
                     throw new DukeException("☹ OOPS!!! You typed a negative number!\n");
                 }
             } else if (command.substring(0, 5).equals("event")) {
@@ -48,10 +54,10 @@ public class CommandChecker {
                 if (!command.contains(" ") || command.equals("delete")) {
                     throw new DukeException("☹ OOPS!!! What task number did you want to delete?\n");
                 }
-                if (Integer.parseInt(command.substring(7)) > list.size()) {
+                if (Integer.parseInt(description) > list.size()) {
                     throw new DukeException("☹ OOPS!!! The number you typed is too high!\n");
                 }
-                if (Integer.parseInt(command.substring(7)) < 0) {
+                if (Integer.parseInt(description) < 0) {
                     throw new DukeException("☹ OOPS!!! You typed a negative number!\n");
                 }
             } else if (command.substring(0, 8).equals("deadline")) {
@@ -66,7 +72,10 @@ public class CommandChecker {
             if (command.contains("list") && !command.equals("list")) {
                 throw new DukeException("☹ OOPS!!! did you mean to type \"list\"? ☹ \n");
             }
-            if (!command.substring(0, 4).equals("list") && !command.startsWith("find")) {
+            if (!command.substring(0, 4).equals("list") && !command.substring(0, 4).equals("find") && !command.contains("massdelete") && !command.contains("massdone")) {
+                throw new DukeException("☹ OOPS!!! I'm sorry, but I don't know what that means ☹ \n");
+            }
+            if (command.contains("delete") && description.matches("-?\\d+(\\.\\d+)?")) {
                 throw new DukeException("☹ OOPS!!! I'm sorry, but I don't know what that means ☹ \n");
             }
         }
