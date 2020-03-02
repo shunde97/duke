@@ -4,6 +4,8 @@ Double McSpicy is an easy to use bot which helps you keep track of your tasks, o
 
 ### Add tasks 
 - Adds a ToDo, Deadline, or Event task to the list of tasks.
+### Generate list of tasks 
+- Generate the current list of tasks with their description and whether they are done or not
 ### Delete tasks 
 - Deletes a task from the list of tasks based on the index of the tasks.
 ### Find tasks 
@@ -14,8 +16,6 @@ Double McSpicy is an easy to use bot which helps you keep track of your tasks, o
 - Delete tasks which contains the desired keyword from the list of tasks.
 ### Mass mark done tasks 
 - Mark all tasks containing the desired keyword as done.
-### Generate list of tasks 
-- Generate the current list of tasks with their description and whether they are done or not
 ### Save list of tasks for future use 
 - Close the app and saves the current list of tasks so that when Double McSpicy is opened in future, the list of tasks is still accessible.
 
@@ -72,6 +72,19 @@ Expected outcome:
 
 ![Deadline expected outcome](Deadline.png)
 
+### `list` - Generate the list of tasks
+Generate the list of tasks and their information.
+
+Format is `list`
+
+Example of usage: 
+
+`list`
+
+Expected outcome:
+
+![list expected outcome](list.png)
+
 ### `delete` - Deletes a task from the list
 Deletes a task from the list based on its numerical position in the list 
 The important things about the usage is number given must fall within the range of number of tasks on the list.
@@ -85,6 +98,73 @@ Example of usage:
 Expected outcome:
 
 ![delete expected outcome](Delete.png)
+
+### `find` - Searches for tasks from the list which contains the desired keyword
+Displays tasks from the list which contains the desired keyword
+
+Format is `find [keyword]`
+
+Example of usage: 
+
+`find project`
+
+Expected outcome:
+
+![find expected outcome](find.png)
+
+### `done` - mark the desired task as done based on the given position of task
+Given the position of a task, marks it as done. It is not reversible until further editions of this bot.
+It is important that the number/position given falls within the size of the list.
+
+Format is `done [position]`
+
+Example of usage: 
+
+`done 2`
+
+Expected outcome:
+
+![done expected outcome](done.png)
+
+### `massdelete` - delete all tasks containing the desired keyword
+Deletes all tasks from the list which contains the desired keyword
+
+Format is `massdelete [keyword]`
+
+Example of usage: 
+
+`massdelete project`
+
+Expected outcome:
+
+![massdelete expected outcome](massdelete.png)
+
+### `massdone` - marks all tasks containing the desired keyword as done
+Marks all tasks from the list which contains the desired keyword as done, it is not reversible as of this update.
+
+Format is `massdone [keyword]`
+
+Example of usage: 
+
+`massdone project`
+
+Expected outcome:
+
+![massdone expected outcome](massdone.png)
+
+### `bye` - saves the current list of tasks and closes the window
+It saves all the tasks and their respective information and status of done/not done, and closes the window.
+
+Format is `bye`
+
+Example of usage: 
+
+`bye`
+
+Expected outcome:
+
+The window closes
+
 
 
 

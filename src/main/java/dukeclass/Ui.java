@@ -92,10 +92,16 @@ public class Ui {
                     }
                 case "massdone":
                     this.tasks.massDone(description);
+                    ArrayList<Task> massDoneTasks = new ArrayList<>();
+                    massDoneTasks = this.tasks.searchTask(description);
+                    StringBuilder massDoneString = new StringBuilder("");
+                    for (Task t : massDoneTasks) {
+                        massDoneString.append("\n" + t.toString());
+                    }
                     if (description.equals("all")) {
                         return "Noted. I've marked all tasks as done!" + "\nNow you have " + Integer.valueOf(this.tasks.getSize()).toString() + " tasks in the list.";
                     } else {
-                        return "Noted. I've marked done these tasks with the keyword: " + description + "\nNow you have " + Integer.valueOf(this.tasks.getSize()).toString() + " tasks in the list.";
+                        return "Noted. I've marked done these tasks with the keyword: " + description + massDoneString.toString() + "\nNow you have " + Integer.valueOf(this.tasks.getSize()).toString() + " tasks in the list.";
                     }
                 case "todo":
                 case "deadline":
