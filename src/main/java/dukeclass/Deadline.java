@@ -31,7 +31,7 @@ public class Deadline extends Task {
             this.timeInput = dateInput.split(" ")[1];
             this.hasTime = true;
         }
-            this.date = LocalDate.parse(this.dateInput);
+        this.date = LocalDate.parse(this.dateInput);
     }
 
     /**
@@ -51,8 +51,7 @@ public class Deadline extends Task {
     /**
      * Saves the deadline object in a human readable string format with all
      * the important information.
-     * @return A String containing information of the deadline saved in a
-     * human readable format.
+     * @return A String containing information of the deadline saved in a human readable format.
      */
     @Override
     public String saveTask() {

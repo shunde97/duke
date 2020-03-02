@@ -27,7 +27,8 @@ public class CommandChecker {
             if (!command.equals("bye")) {
                 throw new DukeException("☹ OOPS!!! I'm sorry, your command is too short \uD83D\uDE09 \n");
             }
-        } else if (command.contains("todo") || command.contains("event") || command.contains("deadline") || command.contains("delete") || command.contains("done")) {
+        } else if (command.contains("todo") || command.contains("event") || command.contains("deadline") ||
+                command.contains("delete") || command.contains("done")) {
             if (command.substring(0, 4).equals("todo")) {
                 if (command.equals("todo ") || command.equals("todo")) {
                     throw new DukeException("☹ OOPS!!! The description of a todo cannot be empty.\n");
@@ -74,7 +75,8 @@ public class CommandChecker {
             if (command.contains("list") && !command.equals("list")) {
                 throw new DukeException("☹ OOPS!!! did you mean to type \"list\"? ☹ \n");
             }
-            if (!command.substring(0, 4).equals("list") && !command.substring(0, 4).equals("find") && !command.contains("massdelete") && !command.contains("massdone")) {
+            if (!command.substring(0, 4).equals("list") && !command.substring(0, 4).equals("find") &&
+                    !command.contains("massdelete") && !command.contains("massdone")) {
                 throw new DukeException("☹ OOPS!!! I'm sorry, but I don't know what that means ☹ \n");
             }
             if (command.contains("delete") && description.matches("-?\\d+(\\.\\d+)?")) {

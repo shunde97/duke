@@ -15,6 +15,7 @@ public class Ui {
     public TaskList tasks;
     private boolean isFinished;
 
+
     /**
      * Constructor method to create an instance of Ui.
      */
@@ -31,9 +32,10 @@ public class Ui {
 
     /**
      * Method to print out the greeting messages to welcome the user to the chat bot.
+     * @return A string greeting for the chatbot.
      */
-    public void greet() {
-        System.out.println("Hello I'm Double McSpicy! What can I do for you?\n");
+    public String greet() {
+        return "Hello I'm Double McSpicy!\nWhat can I do for you?";
     }
 
     /**
@@ -70,11 +72,18 @@ public class Ui {
                         return "the number u keyed in is too high ";
                     }
                 case "massdelete":
+                    ArrayList<Task> massTasks = new ArrayList<>();
+                    massTasks = this.tasks.searchTask(description);
+                    StringBuilder massDeleteString = new StringBuilder("");
+                    for (Task t : massTasks) {
+                        massDeleteString.append("\n" + t.toString());
+                    }
                     this.tasks.massDelete(description);
                     if (description.equals("all")) {
                         return "Noted. I've removed all tasks! \n Now you have 0 tasks! :)";
                     } else {
-                        return "Noted. I've removed these tasks with the keyword: " + description + "\nNow you have " + Integer.valueOf(this.tasks.getSize()).toString() + " tasks in the list.";
+
+                        return "Noted. I've removed these tasks with the keyword: " + description + massDeleteString.toString() + "\nNow you have " + Integer.valueOf(this.tasks.getSize()).toString() + " tasks in the list.";
                     }
                 case "massdone":
                     this.tasks.massDone(description);
