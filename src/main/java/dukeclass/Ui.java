@@ -1,5 +1,6 @@
 package dukeclass;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -21,12 +22,16 @@ public class Ui {
      */
     public Ui() {
         this.isFinished = false;
-        this.storage = new Storage("data/data.txt");
+        storage = new Storage("data/data.txt");
         try {
             tasks = new TaskList(storage.load());
+            storage.checkDirectory();
+            storage.checkFile();
         } catch (DukeException e) {
             showLoadingError(e);
             this.tasks = new TaskList();
+        } catch (IOException e) {
+            System.out.println("error creating files/directory");
         }
     }
 

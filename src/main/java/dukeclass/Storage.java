@@ -1,12 +1,19 @@
 package dukeclass;
 
 import java.util.ArrayList;
-import java.io.FileReader;
 import java.io.BufferedReader;
 import java.io.FileWriter;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.FileNotFoundException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.io.File;
+import java.io.FileReader;
+
+
+
 
 /**
  * CS2103 Individual Project.
@@ -65,6 +72,29 @@ public class Storage {
         System.out.println("done with loading");
         return tasks;
     }
+
+    public void checkDirectory() throws IOException {
+        Path directory = Paths.get("data");
+        try {
+            if (!Files.exists(directory)) {
+                Files.createDirectory(directory);
+            }
+        } catch (IOException e) {
+            System.out.println("Error creating file");
+        }
+    }
+
+    public void checkFile() throws IOException {
+        File dukefile = new File("data" + File.separator + "data.txt");
+        try{
+            if (dukefile.createNewFile()) {
+                System.out.println("creating new file");
+            }
+        } catch (IOException e) {
+            System.out.println("Error creating file");
+        }
+    }
+
 
     /**
      * A class to handle the saving of the ArrayList of tasks.
