@@ -3,21 +3,21 @@ Double McSpicy is an easy to use bot which helps you keep track of your tasks, o
 ## Features 
 
 ### Add tasks 
-- Adds a ToDo, Deadline, or Event task to the list of tasks.
+Adds a ToDo, Deadline, or Event task to the list of tasks.
 ### Generate list of tasks 
-- Generate the current list of tasks with their description and whether they are done or not
+Generate the current list of tasks with their description and whether they are done or not
 ### Delete tasks 
-- Deletes a task from the list of tasks based on the index of the tasks.
+Deletes a task from the list of tasks based on the index of the tasks.
 ### Find tasks 
-- Finds task(s) which contains the desired keyword in the list of tasks.
+Finds task(s) which contains the desired keyword in the list of tasks.
 ### Mark tasks as done 
-- Marks a tasks from the list of tasks as done, based on the position.
+Marks a tasks from the list of tasks as done, based on the position.
 ### Mass delete tasks  
-- Delete tasks which contains the desired keyword from the list of tasks.
+Delete tasks which contains the desired keyword from the list of tasks.
 ### Mass mark done tasks 
-- Mark all tasks containing the desired keyword as done.
+Mark all tasks containing the desired keyword as done.
 ### Save list of tasks for future use 
-- Close the app and saves the current list of tasks so that when Double McSpicy is opened in future, the list of tasks is still accessible.
+Close the app and saves the current list of tasks so that when Double McSpicy is opened in future, the list of tasks is still accessible.
 
 ## Usage
 
