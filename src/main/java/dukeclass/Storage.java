@@ -1,3 +1,5 @@
+package dukeclass;
+
 import java.util.ArrayList;
 import java.io.FileReader;
 import java.io.BufferedReader;

@@ -1,3 +1,5 @@
+package dukeclass;
+
 /**
  * CS2103 Individual Project.
  * The Task class is a subclass for all todos, deadlines, and events. It contains a
@@ -36,9 +38,9 @@ public class Task {
      */
     public String getIcon() {
         if (isDone) {
-            return "[✓]";
+            return "[Done]";
         } else {
-            return "[✘]";
+            return "[Not]";
         }
     }
 

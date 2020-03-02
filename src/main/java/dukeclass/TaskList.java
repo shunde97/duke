@@ -1,3 +1,5 @@
+package dukeclass;
+
 import java.util.ArrayList;
 
 /**
@@ -9,7 +11,7 @@ import java.util.ArrayList;
 
 public class TaskList {
 
-    private ArrayList<Task> taskArray;
+    public ArrayList<Task> taskArray;
 
     /**
      * Constructor method to create an instance of TaskList using an existing ArrayList of Tasks.
@@ -97,14 +99,14 @@ public class TaskList {
      * Searches for tasks containing the user input keyword.
      * @param keyWord The user input to search for tasks containing this word.
      */
-    public void searchTask(String keyWord) {
-        int index = 1;
+    public ArrayList<Task> searchTask(String keyWord) {
+        ArrayList<Task> correctTasks = new ArrayList<>();
         for (Task t: this.taskArray) {
             if (t.getDescription().contains(keyWord)){
-                System.out.println(index + ". " + t) ;
-                index++;
+                correctTasks.add(t);
             }
         }
+        return correctTasks;
     }
 
 
@@ -174,5 +176,20 @@ public class TaskList {
     public ArrayList<Task> getTaskArray() {
         return this.taskArray;
     }
+
+    /**
+     * Prints the string representation of all the tasks.
+     * @return A string representation of all the tasks.
+     */
+    public String printTasks() {
+        int index = 1;
+        StringBuilder tasks = new StringBuilder();
+        for (Task t : this.taskArray) {
+            tasks.append("\n" + Integer.valueOf(index).toString() + "." + t.toString());
+            index++;
+        }
+        return tasks.toString();
+    }
+
 
 }

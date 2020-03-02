@@ -1,3 +1,5 @@
+package dukeclass;
+
 /**
  * CS2103 Individual Project.
  * The Event class extends the Task class, it encapsulates all the information pertaining

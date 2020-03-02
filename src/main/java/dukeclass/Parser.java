@@ -1,3 +1,7 @@
+package dukeclass;
+
+import java.util.ArrayList;
+
 /**
  * CS2103 Individual Project.
  * The Parser class takes in the user input and makes sense of it, splitting it up into
@@ -36,10 +40,15 @@ public class Parser {
      * To verify that the user input is valid.
      * @param tasks The TaskList class object containing the current Arraylist of tasks.
      */
-    public void verifyCommand(TaskList tasks) {
+    public void verifyCommand(String input, TaskList tasks) {
         CommandChecker commandChecker = new CommandChecker();
         try{
-            commandChecker.checkCommand(userInput, tasks.getTaskArray());
+            if (tasks.getTaskArray() == null) {
+                ArrayList<Task> temp = new ArrayList<>();
+                commandChecker.checkCommand(input, temp);
+            } else {
+                commandChecker.checkCommand(input, tasks.getTaskArray());
+            }
         } catch (DukeException e)  {
             System.err.println(e);
         }

@@ -1,3 +1,5 @@
+package dukeclass;
+
 import java.util.ArrayList;
 
 /**
@@ -15,7 +17,7 @@ public class CommandChecker {
      * @throws DukeException If user input is invalid
      */
     public void checkCommand(String command, ArrayList<Task> list) throws DukeException {
-        String description = "";
+        String description = " ";
         if (command.split(" ").length > 1) {
             description = command.split(" ", 2)[1];
         } else {
